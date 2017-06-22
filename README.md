@@ -1,4 +1,5 @@
 # Magento 2 "Affiliate Members"
+Zb is the namespace, my last name Zaib.
 
 1. Display "Affiliate Members" link in Admin Menu under "Marketing" menu.
 2. After clicking on the menu link from Step 2, It should open grid view for Affiliate Members
