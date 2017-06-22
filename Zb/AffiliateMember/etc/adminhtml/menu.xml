@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zb_AffiliateMember extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Zb
+ * @package   Zb_AffiliateMember
+ * @copyright Copyright (c) 2017
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Zb_AffiliateMember::affiliatemember" title="Affiliate Members" module="Zb_AffiliateMember" sortOrder="60" resource="Zb_AffiliateMember::affiliatemember" parent="Magento_Backend::marketing"/>
+        <add id="Zb_AffiliateMember::affiliatemember_affiliatemember" title="Affiliate members" module="Zb_AffiliateMember" sortOrder="10" action="zb_affiliatemember/affiliatemember" resource="Zb_AffiliateMember::affiliatemember_affiliatemember" parent="Zb_AffiliateMember::affiliatemember"/>
+    </menu>
+</config>

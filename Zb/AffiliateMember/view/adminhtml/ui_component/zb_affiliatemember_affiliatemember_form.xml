@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zb_AffiliateMember extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Zb
+ * @package   Zb_AffiliateMember
+ * @copyright Copyright (c) 2017
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">zb_affiliatemember_affiliatemember_form.affiliatemember_form_data_source</item>
+            <item name="deps" xsi:type="string">zb_affiliatemember_affiliatemember_form.affiliatemember_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Affiliate member Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">zb_affiliatemember_affiliatemember_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Zb\AffiliateMember\Block\Adminhtml\Affiliatemember\Edit\Buttons\Back</item>
+            <item name="delete" xsi:type="string">Zb\AffiliateMember\Block\Adminhtml\Affiliatemember\Edit\Buttons\Delete</item>
+            <item name="reset" xsi:type="string">Zb\AffiliateMember\Block\Adminhtml\Affiliatemember\Edit\Buttons\Reset</item>
+            <item name="save" xsi:type="string">Zb\AffiliateMember\Block\Adminhtml\Affiliatemember\Edit\Buttons\Save</item>
+            <item name="save_and_continue" xsi:type="string">Zb\AffiliateMember\Block\Adminhtml\Affiliatemember\Edit\Buttons\SaveAndContinue</item>
+        </item>
+    </argument>
+    <dataSource name="affiliatemember_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Zb\AffiliateMember\Model\Affiliatemember\DataProvider</argument>
+            <argument name="name" xsi:type="string">affiliatemember_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">affiliatemember_id</argument>
+            <argument name="requestFieldName" xsi:type="string">affiliatemember_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="zb_affiliatemember/affiliatemember/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Affiliate member Information</item>
+            </item>
+        </argument>
+        <field name="affiliatemember_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">affiliatemember</item>
+                    <item name="dataScope" xsi:type="string">affiliatemember_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">affiliatemember</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="source" xsi:type="string">affiliatemember</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="dataScope" xsi:type="string">status</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="profile_image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Profile Image</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="source" xsi:type="string">affiliatemember</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="dataScope" xsi:type="string">profile_image</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Zb_AffiliateMember/image-preview</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="zb_affiliatemember/affiliatemember_image/upload/field/profile_image"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

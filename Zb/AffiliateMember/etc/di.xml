@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zb_AffiliateMember extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Zb
+ * @package   Zb_AffiliateMember
+ * @copyright Copyright (c) 2017
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Zb\AffiliateMember\Api\CustomInterface" type="Zb\AffiliateMember\Model\Custom" />
+    <preference for="Zb\AffiliateMember\Api\AffiliatememberRepositoryInterface" type="Zb\AffiliateMember\Model\AffiliatememberRepository"/>
+    <preference for="Zb\AffiliateMember\Api\Data\AffiliatememberInterface" type="Zb\AffiliateMember\Model\Affiliatemember"/>
+    <type name="Zb\AffiliateMember\Model\ResourceModel\Affiliatemember\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">zb_affiliatemember_affiliatemember</argument>
+            <argument name="eventPrefix" xsi:type="string">zb_affiliatemember_affiliatemember_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">affiliatemember_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Zb\AffiliateMember\Model\ResourceModel\Affiliatemember</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="zb_affiliatemember_affiliatemember_listing_data_source" xsi:type="string">Zb\AffiliateMember\Model\ResourceModel\Affiliatemember\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="ZbAffiliateMemberAffiliatememberImageUploader" type="Zb\AffiliateMember\Model\Uploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="const">Zb\AffiliateMember\Model\Uploader::AFFILIATEMEMBER_IMAGE_TMP_PATH</argument>
+            <argument name="basePath" xsi:type="const">Zb\AffiliateMember\Model\Uploader::AFFILIATEMEMBER_IMAGE_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Zb\AffiliateMember\Controller\Adminhtml\Affiliatemember\Image\Upload">
+        <arguments>
+            <argument name="uploader" xsi:type="object">ZbAffiliateMemberAffiliatememberImageUploader</argument>
+        </arguments>
+    </type>
+    <type name="Zb\AffiliateMember\Model\UploaderPool">
+        <arguments>
+            <argument name="uploaders" xsi:type="array">
+                <item name="image" xsi:type="object">ZbAffiliateMemberAffiliatememberImageUploader</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
