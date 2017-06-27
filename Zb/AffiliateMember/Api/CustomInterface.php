@@ -9,7 +9,7 @@ interface CustomInterface
      * @api
      * @return string result data
      */
-    public function list();
+    public function showall();
     
     /**
      * Returns greeting message to user
