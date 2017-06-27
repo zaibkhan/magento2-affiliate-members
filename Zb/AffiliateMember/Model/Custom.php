@@ -17,7 +17,7 @@ class Custom implements CustomInterface
      * @api
      * @return string result data
      */
-    public function list()
+    public function showall()
     {
         try{
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
