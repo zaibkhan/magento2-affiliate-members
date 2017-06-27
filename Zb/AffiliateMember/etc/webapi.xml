@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/affiliatemembers/list" method="GET">
-        <service class="Zb\AffiliateMember\Api\CustomInterface" method="list"/>
+    <route url="/V1/affiliatemembers/list" method="POST">
+        <service class="Zb\AffiliateMember\Api\CustomInterface" method="showall"/>
         <resources>
             <resource ref="Zb_AffiliateMember::affiliatemember"/>
         </resources>
     </route>
-    <route url="/V1/affiliatemembers/active" method="GET">
+    <route url="/V1/affiliatemembers/active" method="POST">
         <service class="Zb\AffiliateMember\Api\CustomInterface" method="active"/>
         <resources>
             <resource ref="Zb_AffiliateMember::affiliatemember"/>
